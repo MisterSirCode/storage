@@ -1,10 +1,6 @@
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    if (document.querySelector(elmnt)) {
-        document.querySelector(elmnt).onmousedown = dragMouseDown;
-    } else {
-        elmnt.onmousedown = dragMouseDown;
-    }
+    elmnt.onmousedown = dragMouseDown;
     function dragMouseDown(e) {
         e = e || window.event;
         pos3 = parseInt(e.clientX);
@@ -21,7 +17,6 @@ function dragElement(elmnt) {
         pos3 = parseInt(e.clientX);
         pos4 = parseInt(e.clientY);
         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-        console.log(elmnt.offsetTop)
         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
     }
 
